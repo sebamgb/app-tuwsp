@@ -1,0 +1,9 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="es">
+{{ template "head" }}
+{{ if eq .Target "/login" }}
+{{ template "login" .Renderize}}
+{{ end }}
+</html>
+{{ end }}

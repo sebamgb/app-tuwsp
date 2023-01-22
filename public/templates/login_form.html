@@ -1,0 +1,12 @@
+{{ define "login_form" }}
+<form action="/login" method="post" onchange="return validateForm();">
+    <div id="error-message"></div>
+    <label for="email">{{.LabelEmail}}:</label>
+    <input type="text" id="email" name="email">
+    <br>
+    <label for="password">{{.LabelPassword}}:</label>
+    <input type="password" id="password" name="password">
+    <br><br>
+    <input type="submit" value="{{.InputSubmit}}">
+</form>
+{{ end }}
