@@ -1,0 +1,31 @@
+form {
+    width: 45%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1em;
+  }
+  #error-message{
+    border-radius: .2em;
+    color: #111;
+  }
+  label {
+    display: block;
+    margin-bottom: 1em;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: .5em;
+    margin-bottom: 1em;
+    font-size: .9em;
+    border-radius: .5em;
+  }
+  input[type="submit"] {
+    width: 5em;
+    padding: .5em;
+    background-color: #2CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: .9em;
+    border-radius: .5em;
+}

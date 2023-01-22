@@ -1,0 +1,17 @@
+{{ define "login_form" }}
+<form class="form" action="/login" method="post" onchange="return validateForm();">
+    <!-- message about form -->
+    <div id="error-message"></div>
+    <!-- form groups -->
+    <div class="form__group">
+        <label for="email">{{.LabelEmail}}:</label>
+        <input class="form__group-email"type="email" id="email" name="email" required>
+    </div>
+    <div class="form__group">
+        <label for="password">{{.LabelPassword}}:</label>
+        <input class="form__group-password" type="password" id="password" name="password" required>
+    </div>
+    <!-- input submit button -->
+    <input class="form__submit" type="submit" name="submit" value="{{.InputSubmit}}">
+</form>
+{{ end }}
