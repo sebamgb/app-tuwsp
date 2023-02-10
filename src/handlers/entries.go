@@ -11,27 +11,32 @@ import (
 	"app/src/server"
 
 	"github.com/golang-sql/civil"
-	"github.com/segmentio/ksuid"
 )
 
 // Login log in user from login form
 func Login(s server.Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		request := models.Login{}
 		if r.Method == "POST" {
-			request.Password = r.FormValue("password")
-			request.Email = r.FormValue("email")
+			request := models.Login{
+				Email:    r.FormValue("email"),
+				Password: r.FormValue("password"),
+			}
+			// validate request
+			message, ok := requests.PostValidateLogin(&request)
+			if !ok {
+				w.Header().Set("X-Error-Message", message)
+				// redirect login with method GET
+				req := http.Request{
+					Method: "GET",
+				}
+				Login(s)(w, &req)
+				return
+			}
 			response, err := requests.PostLoginAuth(&request)
 			if err != nil {
 				fmt.Printf("err: %v\n", err)
 				return
 			}
-			id, err := ksuid.NewRandom()
-			if err != nil {
-				fmt.Printf("err: %v\n", err)
-				return
-			}
-			request.Id = id.String()
 			request.CreatedAt = civil.DateTimeOf(time.Now())
 			auth, err := requests.GetAuthByEmail(request.Email)
 			if err != nil {
@@ -39,28 +44,43 @@ func Login(s server.Server) http.HandlerFunc {
 				return
 			}
 			request.AuthId = auth.Id
-			w.Header().Set("Authorization", response)
-		}
-		var render = models.Render{
-			Target:    request.FormId,
-			Renderize: &models.LoginLabels{},
-		}
-		err := s.Config().Template.ExecuteTemplate(w, "base", &render)
-		if err != nil {
-			log.Fatal(err)
+			// success true then inyect token to header0
+			if response.Success {
+				w.Header().Set("Authorization", response.Token)
+			}
+		} else {
+			form, err := requests.GetForm(r.RequestURI[1:])
+			if err != nil {
+				fmt.Printf("err: %v\n", err)
+				return
+			}
+			renderize, err := requests.GetKeyValue(form.Key_Value)
+			if err != nil {
+				fmt.Printf("err: %v\n", err)
+				return
+			}
+			var render = models.Render{
+				// target as title
+				Target:    form.Title,
+				Renderize: renderize,
+			}
+			err = s.Config().Template.ExecuteTemplate(w, "base", render)
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 }
 
 func Signup(s server.Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		request := models.Signup{}
+		// request := models.Signup{}
 		if r.Method == "POST" {
 
 		}
 		var render = models.Render{
-			Target:    r.RequestURI,
-			Renderize: &SignupLabels{},
+			Target: r.RequestURI,
+			// Renderize: &SignupLabels{},
 		}
 		s.Config().Template.ExecuteTemplate(w, "signup", &render)
 	}

@@ -1,0 +1,9 @@
+{
+    "label_name": "Nombre",
+    "label_nick_name": "Apodo",
+    "label_email": "Correo",
+    "label_password": "Contraseña",
+    "label_phone": "Teléfono",
+    "label_birthday": "Fecha de nacimiento",
+    "label_country": "País"
+}
