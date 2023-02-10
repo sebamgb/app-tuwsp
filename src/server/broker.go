@@ -3,10 +3,8 @@ package server
 import (
 	"log"
 	"net/http"
-	"os"
 	"time"
 
-	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -27,19 +25,9 @@ func (b *Broker) Config() *Config {
 // Up method of Broker to up the server
 func (b *Broker) Up(f binder) (err error) {
 	b.router = mux.NewRouter()
-	file, err := os.
-		OpenFile(
-			"server.log",
-			os.O_APPEND|os.O_CREATE|os.O_RDWR,
-			0666)
-	if err != nil {
-		return
-	}
-	logged := handlers.
-		LoggingHandler(file, b.router)
 	f(b, b.router)
 	handler := cors.
-		Default().Handler(logged)
+		Default().Handler(b.router)
 	b.servr = &http.Server{
 		Handler: handler,
 		Addr:    b.config.port,

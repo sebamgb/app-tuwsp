@@ -1,0 +1,31 @@
+{{ define "signup_form" }}
+<form class="form" id="form" action="/signup" method="post">
+    <!-- group forms to styles  -->
+    <div class="form__group">
+        <label for="name">{{ .LabelName }}</label>
+        <input class="form__group-name" id="name" type="text" name="name" placeholder="ingresa tu nombre" required>
+    </div>
+    <div class="form__group">
+        <label for="nick_name">{{ .LabelNickName }}</label>
+        <input class="form__group-nick_name" id="nick_name" type="text" name="nick_name" placeholder="cómo te podemos llamar?">
+    </div>
+    <div class="form__group">
+        <label for="email">{{ .LabelEmail }}</label>
+        <input class="form__group-email" id="email" type="text" name="email" placeholder="ingresa tu correo" required>
+    </div>
+    <div class="form__group">
+        <label for="phone">{{ .LabelPhone }}</label>
+        <input class="form__group-phone" id="phone" type="text" name="phone" placeholder="ingresa tu número de teléfono">
+    </div>
+    <div class="form__group">
+        <label for="password">{{ .LabelPassword }}</label>
+        <input class="form__group-password" id="password" type="password" name="password" placeholder="ingresa tu nueva contraseña" required>
+    </div>
+    <div class="form__group">
+        <label for="confirm_password">{{ .LabelPassword }}</label>
+        <input class="form__group-confirm_password" id="confirm_password" type="password" name="confirm_password" placeholder="confirma tu nueva contraseña" required>
+    </div>
+    <!-- input submit button -->
+    <input class="form__submit" type="submit" name="submit" value="{{ .InputSubmit }}">
+</form>
+{{ end }}

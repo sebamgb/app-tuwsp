@@ -1,12 +1,36 @@
 {{ define "login_form" }}
-<form action="/login" method="post" onchange="return validateForm();">
-    <div id="error-message"></div>
-    <label for="email">{{.LabelEmail}}:</label>
-    <input type="text" id="email" name="email">
-    <br>
-    <label for="password">{{.LabelPassword}}:</label>
-    <input type="password" id="password" name="password">
-    <br><br>
-    <input type="submit" value="{{.InputSubmit}}">
-</form>
+<!-- form login with bootstrap and metodology BEM -->
+<div class="container">
+    <form action="/login" method="post" class="form" id="form">
+        <!-- error with alert bootstrap -->
+        {{ if .Error }}!
+        <div id="error" class="form__error alert mt-3 alert-danger">
+            <p class="form__error__message">
+                {{ .Error }}
+                <button type="button" class="form__error__message-btn close" data-dismiss="alert" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </p>
+        </div>
+        {{ end }}
+        <!-- form header -->
+        <h1 class="form__title">{{ .Title }}</h1>
+        <!-- form groups -->
+        <div class="form__group">
+            <label for="email" class="form__group-label">{{ .LabelEmail }}</label>
+            <input type="text" name="email" id="email" placeholder="{{ .PlaceholderEmail }}" class="form__group-email form-control">
+        </div>
+        <div class="form__group">
+            <label for="password" class="form__group-label">{{ .LabelPassword }}</label>
+            <input type="password" name="password" id="password" placeholder="{{ .PlaceholderPassword }}" class="form__group-password form-control">
+        </div>
+        <div class="form__group">
+            <input type="submit" name="enviar" id="enviar" value="{{ .InputSubmit }}" class="form__group-btn btn btn-primary btn-sm btn-block">
+        </div>
+        <!-- form footer -->
+        <div class="form__footer">
+            <a href="/signup" class="form__footer-link btn btn-link">Registrarse</a>
+        </div>
+    </form>
+</div>
 {{ end }}
