@@ -1,4 +1,9 @@
 {{ define "body"}}
-{{ template "login" .Renderize}}
+{{ if eq .Target "Login" }}
+{{ template "login" .Renderize }}
+{{ end }}
+{{ if .Error }}
+{{ template "error" .}}
+{{ end }}
 {{ template "script-data" }}
 {{ end }}

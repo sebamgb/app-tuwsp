@@ -1,7 +1,7 @@
 {{ define "head" }}
 <head>
     {{ template "meta-data" }}
-    <title>{{ .Target }}</title>
-    {{ template "link-data" }}
+    <title>{{ .Target }} - {{ .App }}</title>
+    {{ template "link-data" . }}
 </head>
 {{ end }}

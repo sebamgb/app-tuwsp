@@ -1,0 +1,12 @@
+[
+    {
+        "app": "tuwsp",
+        "author": "app",
+        "target": "login"
+    },
+    {
+        "app": "tuwsp",
+        "author": "app",
+        "target": "signup"
+    }
+]

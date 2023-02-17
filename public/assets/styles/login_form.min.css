@@ -1,6 +1,0 @@
-/*
-  * Template Name: Login Form v1
-  * Template URL: https://tuwsp.es/assets/styles/login_form.min.css 
-  * Author: Sebastian Romero
- */
-body .container{width:100%;max-width:50%;margin:3em auto;padding:0 .5em;box-sizing:border-box}body .container .login-form{background-color:#fff;padding:30px;border-radius:5px;width:100%;box-shadow:0 0 10px rgba(0,0,0,.1)}body .container .login-form #error p{font-size:12px;text-align:center}body .container .login-form .title{font-size:20px;font-weight:700;text-align:center;margin-bottom:20px}body .container .login-form .form-group{margin-bottom:20px}body .container .login-form .form-group .form-control-label{font-weight:400;font-size:13px}body .container .login-form .form-group .login-btn{border-color:#4aba70}body .container .login-form .form-group .login-btn:focus,body .container .login-form .form-group .login-btn:hover{border-color:#333}body .container .login-form .form-footer{text-align:center}

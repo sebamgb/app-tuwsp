@@ -1,36 +1,43 @@
 {{ define "login_form" }}
-<!-- formulario login con bootstrap -->
+<!-- form login with bootstrap and BEM metodology -->
 <div class="container">
-    <form action="/login" method="post" class="login-form" id="form">
-        <!-- error with alert bootstrap -->
-        {{ if .Error }}
-        <div id="error" class="alert mt-3 alert-danger">
-            <p>
-                {{ .Error }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </p>
-        </div>
-        {{ end }}
+    <div class="row container__form">
         <!-- form header -->
-        <h1 class="title">Login</h1>
-        <!-- form groups -->
-        <div class="form-group">
-            <label for="email" class="form-control-label">{{ .LabelEmail }}</label>
-            <input type="text" name="email" id="email" placeholder="{{ .PlaceholderEmail }}" class="form-control">
+        <div class="container__form__header">
+            <!-- error with alert bootstrap -->
+            <div id="error" class="container__form__header-error alert mt-3 alert-danger">
+                <p class="container__form__header-error-message" id="error-message">
+                    <span class="container__form__header-error-message-text">{{ .Error }}</span>
+                    <button type="button" class="container__form__header-error-message-btn close" data-dismiss="alert" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
+            </div>
+            <h1 class="form__header-title"><span>{{ .Title }}</span></h1>
         </div>
-        <div class="form-group">
-            <label for="password">{{ .LabelPassword }}</label>
-            <input type="password" name="password" id="password" placeholder="{{ .PlaceholderPassword }}" class="form-control">
-        </div>
-        <div class="form-group">
-            <input type="submit" name="enviar" id="enviar" value="Enviar" class="login-btn btn btn-primary btn-sm btn-block">
-        </div>
+        <form action="{{ .Url }}" method="{{ .Method }}" class="col form" id="form">
+            <!-- form body -->
+            <div class="form__body">
+                <!-- form groups -->
+                <div class="form__body__group form-group">
+                    <label for="email" class="form__body__group-label">{{ .Label.LabelEmail }}</label>
+                    <input type="email" required name="email" id="email" placeholder="{{ .Placeholder.PlaceholderEmail }}" class="form__body__group-input form-control">
+                    <small class="form__body__group-error"></small>
+                </div>
+                <div class="form__body__group form-group">
+                    <label for="password" class="form__body__group-label">{{ .Label.LabelPassword }}</label>
+                    <input type="password" required name="password" id="password" placeholder="{{ .Placeholder.PlaceholderPassword }}" class="form__body__group-input form-control">
+                    <small class="form__body__group-error"></small>
+                </div>
+                <div class="form__body__group form-group">
+                    <input type="submit" disabled name="send" id="send" value="{{ .Label.InputSubmit }}" class="form__body__group-btn btn btn-primary btn-sm btn-block">
+                </div>
+            </div>
+        </form>
         <!-- form footer -->
-        <div class="form-footer">
-            <a href="/signup" class="btn btn-link">Registrarse</a>
+        <div class="container__form__footer">
+            <a href="/signup" class="container__form__footer-link btn btn-link">Registrarse</a>
         </div>
-    </form>
+    </div>
 </div>
 {{ end }}

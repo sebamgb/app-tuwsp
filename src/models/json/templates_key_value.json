@@ -1,0 +1,49 @@
+[
+    {
+        "title": "Inicia sesión",
+        "label_email": "Email",
+        "placeholder_email": "Correo electrónico",
+        "label_password": "Password",
+        "placeholder_password": "Contraseña",
+        "input_submit": "Login",
+        "author": "app"
+    },
+    {
+        "title": "Regístrate",
+        "label_name": "Nombre",
+        "placeholder_name": "ej: Fulanito de tal",
+        "label_nick_name": "Apodo",
+        "placeholder_nick_name": "ej: Fulano84",
+        "label_email": "Email",
+        "placeholder_email": "Correo electrónico",
+        "label_phone": "Teléfono",
+        "placeholder_phone": "formato: 912345678",
+        "label_birthday": "Fecha de nacimiento",
+        "label_country": "País",
+        "placeholder_country": "ej:Chile",
+        "label_password": "Password",
+        "placeholder_password": "Nueva contraseña",
+        "label_confirm_password": "Confirmar contraseña",
+        "placeholder_confirm_password": "Una vez más",
+        "input_submit": "Regístrate",
+        "author": "app"
+    },
+    {
+        "title": "Recuperar contraseña",
+        "label_email": "Email",
+        "placeholder_email": "Correo electrónico",
+        "input_submit": "Enviar",
+        "author": "app"
+    },
+    {
+        "title": "Restablecer contraseña",
+        "label_email": "Email",
+        "placeholder_email": "Correo electrónico",
+        "label_password": "Password",
+        "placeholder_password": "Contraseña",
+        "label_confirm_password": "Confirmar contraseña",
+        "placeholder_confirm_password": "Confirmar contraseña",
+        "input_submit": "Restablecer",
+        "author": "app"
+    }
+]

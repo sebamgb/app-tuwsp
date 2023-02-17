@@ -1,10 +1,9 @@
-/*
- * Author: Sebastián Romero
- * Project: tuwsp
- */
+/* Author: Sebastián Romero
+ * Project: tuwsp*/
 package main
 
 import (
+	"app/src/requests"
 	"app/src/routes"
 	"app/src/server"
 
@@ -16,8 +15,7 @@ import (
 
 // init preinitialization
 func init() {
-	if err := godotenv.
-		Load(".env"); err != nil {
+	if err := godotenv.Load(".env"); err != nil {
 		log.Fatal(err)
 		return
 	}
@@ -25,19 +23,12 @@ func init() {
 
 // main calls to toraly web server
 func main() {
-	if config, err := server.
-		NewConfig(); err != nil {
+	if config, err := server.NewConfig(); err != nil {
 		log.Fatal(err)
-	} else if s, err := server.
-		NewServer(
-			context.Background(),
-			config,
-		); err != nil {
+	} else if s, err := server.NewServer(context.Background(),
+		config); err != nil {
 		log.Fatal(err)
-	} else if s.
-		Up(
-			routes.BindRoute,
-		); err != nil {
+	} else if s.Up(routes.BindRoute, requests.Entrypoint); err != nil {
 		log.Fatal(err)
 	}
 }

@@ -1,0 +1,9 @@
+{
+    "title": "login",
+    "url": "/login",
+    "method": "post",
+    "email": "string",
+    "password": "string",
+    "auth_id": "string",
+    "form_id": "string"
+}

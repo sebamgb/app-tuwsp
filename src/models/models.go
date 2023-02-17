@@ -12,6 +12,9 @@ type Dashboard struct {
 
 type Login struct {
 	Id        string         `json:"id"`
+	Title     string         `json:"title"`
+	Url       string         `json:"url"`
+	Method    string         `json:"method"`
 	Email     string         `json:"email"`
 	Password  string         `json:"password"`
 	CreatedAt civil.DateTime `json:"created_at"`
@@ -22,10 +25,15 @@ type Login struct {
 
 type Signup struct {
 	Id              string `json:"id"`
+	Title           string `json:"title"`
+	Url             string `json:"url"`
+	Method          string `json:"method"`
 	Name            string `json:"name"`
 	NickName        string `json:"nick_name"`
 	Email           string `json:"email"`
 	Phone           int    `json:"phone"`
+	Birthday        string `json:"birthday"`
+	Country         string `json:"country"`
 	Password        string `json:"password"`
 	ConfirmPassword string `json:"confirm_password"`
 	FormId          string `json:"form_id"`
@@ -40,10 +48,11 @@ type Auth struct {
 }
 
 type Form struct {
-	Id        string `json:"id"`
-	Title     string `json:"title"`
-	App       string `json:"app"`
-	Key_Value string `json:"key_value"`
+	Id       string `json:"id"`
+	App      string `json:"app"`
+	KeyValue string `json:"key_value"`
+	Target   string `json:"target"`
+	Author   string `json:"author"`
 }
 
 type KeyValue struct {
@@ -58,9 +67,15 @@ type KeyValue struct {
 	PlaceholderEmail           string `json:"placeholder_email"`
 	LabelPhone                 string `json:"label_phone"`
 	PlaceholderPhone           string `json:"placeholder_phone"`
+	LabelBirthday              string `json:"label_birthday"`
+	PlaceholderBirthday        string `json:"placeholder_birthday"`
+	LabelCountry               string `json:"label_country"`
+	PlaceholderCountry         string `json:"placeholder_country"`
 	LabelPassword              string `json:"label_password"`
 	PlaceholderPassword        string `json:"placeholder_password"`
 	LabelConfirmPassword       string `json:"label_confirm_password"`
 	PlaceholderConfirmPassword string `json:"placeholder_confirm_password"`
 	InputSubmit                string `json:"input_submit"`
+	LabelId                    string `json:"label_id"`
+	Author                     string `json:"author"`
 }

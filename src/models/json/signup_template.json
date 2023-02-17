@@ -1,0 +1,11 @@
+{
+    "title": "signup",
+    "url": "/signup",
+    "method": "post",
+    "email": "string",
+    "password": "string",
+    "name": "string",
+    "phone": 912345678,
+    "nick_name": "apodo",
+    "country": "string"
+}

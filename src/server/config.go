@@ -1,6 +1,8 @@
 package server
 
 import (
+	"app/src/models"
+
 	"html/template"
 	"os"
 	"strings"
@@ -9,6 +11,8 @@ import (
 type Config struct {
 	port     string
 	Template *template.Template
+	Login    *models.Login
+	Signup   *models.Signup
 }
 
 // NewConfig builder of Config
@@ -28,5 +32,19 @@ func NewConfig() (*Config, error) {
 			Must(template.ParseGlob(
 				globPath,
 			)),
+		Login:  NewLogin(),
+		Signup: NewSignup(),
 	}, nil
+}
+
+func (c *Config) Port() string {
+	return c.port
+}
+
+func NewLogin() *models.Login {
+	return &models.Login{}
+}
+
+func NewSignup() *models.Signup {
+	return &models.Signup{}
 }

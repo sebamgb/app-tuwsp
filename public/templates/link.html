@@ -1,5 +1,8 @@
 {{ define "link-data" }}
-<link rel="stylesheet" type="text/css" href="/assets/styles/login_form.css">
+{{ if eq .Target "Login" }}
+<!-- customize form styles -->
+<link rel="stylesheet" type="text/css" href="/assets/styles/form.min.css">
+{{ end }}
 <!-- bootstrap -->
 <link rel="stylesheet" type="text/css" href="/assets/styles/bootstrap.min.css">
 <!-- normalize -->

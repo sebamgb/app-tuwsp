@@ -1,0 +1,128 @@
+body {
+    height: 100vh;
+    font-family: 'source', sans-serif;
+    .container {
+        background-image: linear-gradient(
+            to bottom,
+            rgba(156, 156, 156, 0.52),
+            rgba(0, 0, 0, 0.73)
+        ),
+        url('/assets/img/elevate-nYgy58eb9aw-unsplash.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-width: 100%;
+        min-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__form {
+            width: 70%;
+            max-width: 100%;
+            background-color: var(--bs-light);
+            border-radius: .3em;
+            overflow: hidden;
+            box-shadow: 0px 5px 16px 0px rgba(0,0,0,0.75);
+            &__header {
+                background-color: var(--bs-gray);
+                padding: 1em 2em;
+                text-align: center;
+                border-bottom: 5px solid var(--bs-white);
+                color: var(--bs-white);
+                &-error {
+                    display: none;
+                    &-message {
+                        text-align: center;
+                        &-text {
+                            color: var(--bs-danger);
+                            font-size: 1.2em;
+                            font-weight: 700;
+                        }
+                    }
+                }
+                &-title {
+                    font-size: 1.5em;
+                    font-weight: 700;
+                }
+            }
+            .form {
+                padding: 1em 2em;
+                &__body {
+                    padding-top: 1em;
+                    padding-bottom: 2em;
+                    &__group {
+                        padding-bottom: 1.5em;
+                        margin-bottom: 1em;
+                        &.error {
+                            input {
+                                border-color: var(--bs-danger);
+                            }
+                        }
+                        &.success {
+                            input {
+                                border-color: var(--bs-success);
+                            }
+                        }
+                        &-input {
+                            display:block;
+                            width: 100%;
+                            font-family: inherit;
+                            font-size: 1em;
+                            border-radius: .3em;
+                            margin-top: 1em;
+                        }
+                        &-error {
+                            color: var(--bs-danger);
+                            font-size: .8em;
+                            font-weight: 700;
+                            margin-top: .5em;
+                        }
+                        &-valid {
+                            color: var(--bs-success);
+                            font-size: .8em;
+                            font-weight: 700;
+                            margin-top: .5em;
+                            visibility: hidden;
+                        }
+                        &-btn {
+                            display: block;
+                            width: 100%;
+                            border: 1px solid var(--bs-success);
+                            border-radius: .3em;
+                            color: var(--bs-white);
+                            font-weight: bold;
+                            font-size: 1.5em;
+                            font-family: inherit;
+                            text-transform: uppercase;
+                            &:disabled {
+                                background-color: var(--bs-secondary);
+                                border-color: var(--bs-secondary);
+                                cursor: not-allowed;
+                                color: var(--bs-light);
+                            }
+                            &:hover  {
+                                background-color: var(--bs-success);
+                                border-color: var(--bs-primary);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            &__footer {
+                background-color: var(--bs-gray-dark);
+                padding: 1em 2em;
+                text-align: center;
+                border-top: 5px solid var(--bs-white);
+                &-link {
+                    color: var(--bs-white);
+                    font-size: 1.2em;
+                    font-weight: 700;
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
